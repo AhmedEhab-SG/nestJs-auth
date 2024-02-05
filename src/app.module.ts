@@ -3,10 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { OrderModule } from './orders/orders.module';
 import { MongoModule } from './mongo/mongo.module';
-import { UserModule } from './users/users.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
-  imports: [MongoModule, OrderModule, UserModule],
+  imports: [MongoModule, AuthModule, OrderModule],
   controllers: [AppController],
   providers: [AppService],
 })
