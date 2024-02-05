@@ -3,7 +3,7 @@ import { LogInDto } from 'src/dtos/log-in.dto';
 import { RegisterDto } from 'src/dtos/register.dto';
 import { User } from 'src/schemas/user.schema';
 
-import { JWTStrategy } from './jwt.strategy';
+import { JWTStrategy } from '../jwt/jwt.strategy';
 import { compare, hash } from 'bcrypt';
 import { AuthService } from './auth.service';
 
@@ -29,6 +29,7 @@ export class AuthController {
     const user = await this.authService.logIn(userObj);
 
     const isPasswordMatched = await compare(password, user.password);
+    
     if (!isPasswordMatched)
       throw new UnauthorizedException('Invaild email or password!');
 
