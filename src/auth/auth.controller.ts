@@ -32,6 +32,7 @@ export class AuthController {
 
     if (!isPasswordMatched)
       throw new UnauthorizedException('Invaild email or password!');
+
     return {
       token: this.jwtService.sign(
         { email },
