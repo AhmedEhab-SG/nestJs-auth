@@ -10,7 +10,7 @@ export class AuthService {
   constructor(@InjectModel(User.name) private userModel: Model<User>) {}
 
   async register(userObj: RegisterDto): Promise<User> {
-    return this.userModel.create({ userObj });
+    return this.userModel.create(userObj);
   }
 
   async logIn(userObj: LogInDto): Promise<User> {
